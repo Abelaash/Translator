@@ -23,9 +23,9 @@ export default function Translate() {
 
   return (
     <SafeAreaView>
-      <LanguageButton lang={fromLang} setIsEditingLang={setIsEditingFrom} />
-      {isEditingFrom ? (
-        <LanguagePicker setLang={setFromLang} />
+      <LanguageButton lang={fromLang} isEditing={isEditingFrom} setIsEditingLang={setIsEditingFrom} />
+      {isEditingFrom == true ? (
+        <LanguagePicker setLang={setFromLang} setIsEditingLang={setIsEditingFrom}/>
       ) : (
         <TextInput
           style={styles.textBox}
@@ -33,9 +33,9 @@ export default function Translate() {
           placeholder="text to translate..."
         />
       )}
-      <LanguageButton lang={toLang} setIsEditingLang={setIsEditingTo} />
-      {isEditingTo ? (
-        <LanguagePicker setLang={setToLang} />
+      <LanguageButton lang={toLang} isEditing={isEditingTo} setIsEditingLang={setIsEditingTo} />
+      {isEditingTo == true ? (
+        <LanguagePicker setLang={setToLang} setIsEditingLang={setIsEditingTo}/>
       ) : (
         <TextInput
           style={styles.textBox}
@@ -53,12 +53,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-  },
-  langButton:{
-
-  },
-  langButtonText:{
-
   },
   langPicker:{
 

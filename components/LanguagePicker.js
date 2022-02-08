@@ -6,13 +6,13 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-export default function Translate({setLang}) {
+export default function LanguagePicker({setLang, setIsEditingLang}) {
 
   return (
     <ScrollView>
       {
         availableLanguages.map((lang, index) => (
-          <TouchableOpacity key={index} style={styles.item} onPress={setLang(lang)}>
+          <TouchableOpacity key={index} style={styles.item} onPress={()=> {setLang(lang); setIsEditingLang(false);}}>
             <Text>{lang.title}</Text>
           </TouchableOpacity>
         ))
