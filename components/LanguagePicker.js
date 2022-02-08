@@ -13,7 +13,7 @@ export default function LanguagePicker({setLang, setIsEditingLang}) {
       {
         availableLanguages.map((lang, index) => (
           <TouchableOpacity key={index} style={styles.item} onPress={()=> {setLang(lang); setIsEditingLang(false);}}>
-            <Text>{lang.title}</Text>
+            <Text style={styles.itemText}>{lang.title}</Text>
           </TouchableOpacity>
         ))
       }
@@ -23,10 +23,10 @@ export default function LanguagePicker({setLang, setIsEditingLang}) {
 
 const styles = StyleSheet.create({
   item: {
-
+    height: 35
   },
   itemText: {
-
+    fontSize: 20,
   }
 });
 

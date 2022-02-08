@@ -6,14 +6,16 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-export default function LanguageButton({lang, isEditing, setIsEditingLang}) {
+export default function LanguageButton({buttonColor, placeHolder, lang, isEditing, setIsEditingLang}) {
     return (
       <TouchableOpacity
-        style={styles.langButton}
-        onPress={() => {setIsEditingLang(isEditing == true ? false : true);}}
+        style={{ ...styles.langButton, backgroundColor: buttonColor}}
+        onPress={() => {
+          setIsEditingLang(isEditing == true ? false : true);
+        }}
       >
         <Text style={styles.langButtonText}>
-          {lang == null ? "language to translate from" : lang.title}
+          {lang == null ? placeHolder : lang.title}
         </Text>
       </TouchableOpacity>
     );
@@ -21,12 +23,14 @@ export default function LanguageButton({lang, isEditing, setIsEditingLang}) {
 
 const styles = StyleSheet.create({
   langButton: {
-    backgroundColor: 'blue',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
     height: 40,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   langButtonText: {
-    fontSize: 20,
-    textAlign: 'center',
+    color: 'white',
+    fontSize: 25,
+    textAlign: "center",
   },
 });
